@@ -13,8 +13,8 @@ def caesarcipher(string, shift_value)
       p encryption
       if 97 <= encryption[i] && encryption[i] <= 125
         encryption[i] = 97 <= encryption[i] && encryption[i] <= 122 ? encryption[i].chr : (encryption[i]-26).chr
-      elsif 68 <= encryption[i] && encryption[i] <= 96
-        encryption[i] = 68 <= encryption[i] && encryption[i] <= 90 ? encryption[i].chr : (encryption[i]-26).chr
+      elsif 65 <= encryption[i] && encryption[i] <= 96
+        encryption[i] = 65 <= encryption[i] && encryption[i] <= 90 ? encryption[i].chr : (encryption[i]-26).chr
       end
     else
       encryption[i]
@@ -26,4 +26,4 @@ def caesarcipher(string, shift_value)
   p "---"
 end
 
-caesarcipher("ABC 123 abc 456 XYZ 789 xyz 10!", 1)
+caesarcipher("abc", 29)
