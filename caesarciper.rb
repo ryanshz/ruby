@@ -4,26 +4,26 @@ def caesarcipher(string, shift_value)
   # step 2: in one iteration, check if character is /A-Za-z/, ignore rest (regex)
   # step 3: in same iteration, convert all letters to numbers, add shift_value to numbers, then convert back to letters
   # step 4: combine string and return
-
-  # gonna work out step 1 and 4 first, then go back to 3, then add 2
-  # then refactoring!!
-  # step 1
   p "decrypted string: " + string
   encryption = string.chars
-  # step 2
 
-  # step 3
-  # convert character array to ordinal, add shift value
-  encryption.map! do |value|
-    value.ord + shift_value
+  for i in 0...encryption.length
+    if /[A-Za-z]/.match?(encryption[i])
+      encryption[i] = encryption[i].ord + shift_value
+      p encryption
+      if 97 <= encryption[i] && encryption[i] <= 125
+        encryption[i] = 97 <= encryption[i] && encryption[i] <= 122 ? encryption[i].chr : (encryption[i]-26).chr
+      elsif 68 <= encryption[i] && encryption[i] <= 96
+        encryption[i] = 68 <= encryption[i] && encryption[i] <= 90 ? encryption[i].chr : (encryption[i]-26).chr
+      end
+    else
+      encryption[i]
+    end
   end
-  # convert ordinal array to character
-  encryption.map! do |value|
-    97 <= value && value <= 122 ? value.chr : (value-26).chr
-  end
-  # step 4
+
   encryption = encryption.join
   p "encrypted string: " + encryption
+  p "---"
 end
 
-caesarcipher("abcxyz", 3)
+caesarcipher("ABC 123 abc 456 XYZ 789 xyz 10!", 1)
