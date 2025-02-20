@@ -8,22 +8,35 @@ def caesarcipher(string, shift_value)
   encryption = string.chars
 
   for i in 0...encryption.length
-    if /[A-Za-z]/.match?(encryption[i])
+    if /[a-z]/.match?(encryption[i])
       encryption[i] = encryption[i].ord + shift_value
-      p encryption
-      if 97 <= encryption[i] && encryption[i] <= 125
-        encryption[i] = 97 <= encryption[i] && encryption[i] <= 122 ? encryption[i].chr : (encryption[i]-26).chr
-      elsif 65 <= encryption[i] && encryption[i] <= 96
-        encryption[i] = 65 <= encryption[i] && encryption[i] <= 90 ? encryption[i].chr : (encryption[i]-26).chr
+      if encryption[i] >= 97
+        if shift_value == 0
+          encryption[i] = encryption[i].chr
+        else
+          if shift_value >= 26
+            p (26*((shift_value.to_f/26).ceil))
+            p encryption[i]-(26*((shift_value.to_f/26).ceil))
+            p "---"
+            encryption[i] = (encryption[i]-(26*((shift_value.to_f/26).ceil))).chr
+          else
+            encryption[i] = 97 <= encryption[i] && encryption[i] <= 122 ? encryption[i].chr : (encryption[i]-26).chr
+          end
+        end
+        # for z, needs to go from 122 to 97
       end
-    else
-      encryption[i]
     end
-  end
+   end
 
   encryption = encryption.join
   p "encrypted string: " + encryption
   p "---"
 end
 
-caesarcipher("abc", 29)
+#for i in 26...52
+caesarcipher("abcdefghijklmnopqrstuvwxyz", 25)
+#end
+
+# encryption[i] = shift_value > 26 ? (encryption[i]-(26*((shift_value.to_f/26).ceil))).chr : (encryption[i]-(26)).chr
+
+# elsif 65 <= encryption[i] && encryption[i] <= 96
