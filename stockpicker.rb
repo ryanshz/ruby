@@ -41,6 +41,8 @@ stock_picker([12,48,16,30,4,45,25,43,31,18,3,17,27,36,11,16,27,24,10,33,30,33,13
 # make it check the differences between all values instead of the min and max, but don't wanna sink too much time into this atm
 # will revisit at a later date
 
+# note: i saw a solution that did this in one line... fdslkjfdshvnboidsajflk
+
 =begin
 how it should work: iterate through, find two values with biggest profit margin (smallest and largest), return said values
 smallest value HAS to come before largest value (description mentions two conditions but this satisfies both)
