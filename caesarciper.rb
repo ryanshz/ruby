@@ -1,4 +1,3 @@
-# takes in a string, shifts every character by the shift_value, then returns shifted string
 def caesarcipher(string, shift_value)
   # step 1: split string into an array
   # step 2: in one iteration, check if character is /A-Za-z/, ignore rest (regex)
