@@ -35,7 +35,11 @@ def stock_picker(stocks)
     p result
 end
 
-stock_picker([12,48,16,30,12,42,25,43,31,18,3,17,27,36,11,16,46,27,24,10,33,30,33,13,39])
+stock_picker([12,48,16,30,4,45,25,43,31,18,3,17,27,36,11,16,27,24,10,33,30,33,13,39])
+
+# currently, only checks smallest value with largest values afterward, for this to be TRULY complete i'd have to find a way to
+# make it check the differences between all values instead of the min and max, but don't wanna sink too much time into this atm
+# will revisit at a later date
 
 =begin
 how it should work: iterate through, find two values with biggest profit margin (smallest and largest), return said values
