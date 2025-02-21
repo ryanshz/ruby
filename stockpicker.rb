@@ -5,10 +5,8 @@ def stock_picker(stocks)
     smallest = 0
     largest = 0
     while largest_before_smallest == true && next_found == true
-        for i in 0..stocks.length
+        stocks.length.times do
             smallest = stocks.min
-        end
-        for i in 0..stocks.length
             largest = stocks.max
         end
         if smallest == nil || largest == nil
